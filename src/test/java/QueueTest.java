@@ -105,7 +105,7 @@ class QueueTest {
         assertEquals(1, queue.remove());
         queue.add(3);
         queue.add(4);
-//        assertEquals(2, queue.remove());
-//        assertEquals(3, queue.remove());
+        assertEquals(2, queue.remove());
+        assertEquals(3, queue.remove());
     }
 }
