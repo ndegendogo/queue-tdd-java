@@ -34,8 +34,11 @@ public class Queue {
 
     private void grow() {
         int[] newElements = new int[size + 1];
-        arraycopy(elements, 0, newElements, 0, size);
+        arraycopy(elements, popIndex, newElements, 0, size - popIndex);
+        arraycopy(elements, 0, newElements, size - popIndex, popIndex);
         elements = newElements;
+        popIndex = 0;
+        pushIndex = size;
     }
 
     public int getSize() {
