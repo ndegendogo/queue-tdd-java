@@ -13,7 +13,9 @@ public class Queue {
     public void add(int i) {
         if (isFull())
             grow();
-        elements[pushIndex++ % elements.length] = i;
+        int index = pushIndex % elements.length;
+        elements[index] = i;
+        pushIndex = pushIndex + 1;
         size++;
     }
 
@@ -24,8 +26,10 @@ public class Queue {
     public int remove() {
         if (isEmpty())
             throw new Underflow();
+        int result = elements[popIndex];
+        popIndex = (popIndex + 1) % elements.length;
         size--;
-        return elements[popIndex++ % elements.length];
+        return result;
     }
 
     private void grow() {
