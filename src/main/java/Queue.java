@@ -7,30 +7,35 @@ public class Queue {
     private int popIndex;
 
     public boolean isEmpty() {
-        return size - popIndex == 0;
+        return size == 0;
     }
 
     public void add(int i) {
-        if (elements.length <= size - popIndex)
+        if (isFull())
             grow();
         elements[pushIndex++ % elements.length] = i;
         size++;
     }
 
+    private boolean isFull() {
+        return size == elements.length;
+    }
+
     public int remove() {
-        if (popIndex >= size)
+        if (isEmpty())
             throw new Underflow();
+        size--;
         return elements[popIndex++ % elements.length];
     }
 
     private void grow() {
-        int[] newElements = new int[elements.length + 1];
-        arraycopy(elements, 0, newElements, 0, elements.length);
+        int[] newElements = new int[size + 1];
+        arraycopy(elements, 0, newElements, 0, size);
         elements = newElements;
     }
 
     public int getSize() {
-        return size - popIndex;
+        return size;
     }
 
     int getMemory() {
