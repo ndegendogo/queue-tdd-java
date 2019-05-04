@@ -25,7 +25,7 @@ public class Queue {
 
     private void grow() {
         int[] newElements = new int[elements.length + 1];
-        arraycopy(elements, 0, newElements, 0, size);
+        arraycopy(elements, 0, newElements, 0, elements.length);
         elements = newElements;
     }
 
