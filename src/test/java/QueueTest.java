@@ -97,4 +97,13 @@ class QueueTest {
         assertEquals(13, queue.remove());
         assertEquals(2, queue.getMemory());
     }
+
+    @Test
+    void grow_afterRemove() {
+        queue.add(1);
+        queue.add(2);
+        assertEquals(1, queue.remove());
+        queue.add(3);
+        queue.add(4);
+    }
 }
