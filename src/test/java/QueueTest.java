@@ -148,4 +148,13 @@ class QueueTest {
         assertEquals(3, queue.remove());
         assertEquals(4, queue.remove());
     }
+
+    @Test
+    void shrink() {
+        queue.add(1);
+        queue.add(2);
+        assertEquals(1, queue.remove());
+        queue.growTo(1);
+        assertEquals(2, queue.remove());
+    }
 }
