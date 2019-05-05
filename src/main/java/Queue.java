@@ -35,6 +35,9 @@ public class Queue {
 
     public void growTo(int newSize) {
         int size = getSize();
+        if (newSize < size) {
+            throw new Overflow();
+        }
         int[] newElements = new int[newSize];
         if (!isEmpty()) {
             popIndex = popIndex % elements.length;

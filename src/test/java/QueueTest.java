@@ -157,4 +157,13 @@ class QueueTest {
         queue.growTo(1);
         assertEquals(2, queue.remove());
     }
+
+    @Test
+    void cannotShrinkBeyondSize() {
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        assertEquals(1, queue.remove());
+        assertThrows(Overflow.class, () -> queue.growTo(1));
+    }
 }
