@@ -136,4 +136,16 @@ class QueueTest {
         queue.growBy(1);
         assertEquals(2, queue.remove());
     }
+
+    void growByTwo_checkContent() {
+        queue.add(1);
+        queue.add(2);
+        assertEquals(1, queue.remove());
+        queue.growBy(2);
+        queue.add(3);
+        queue.add(4);
+        assertEquals(2, queue.remove());
+        assertEquals(3, queue.remove());
+        assertEquals(4, queue.remove());
+    }
 }
