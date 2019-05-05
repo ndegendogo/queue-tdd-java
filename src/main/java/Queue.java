@@ -5,14 +5,6 @@ public class Queue {
     private int pushIndex;
     private int popIndex;
 
-    public int getSize() {
-        return pushIndex - popIndex;
-    }
-
-    int getMemory() {
-        return elements.length;
-    }
-
     public boolean isEmpty() {
         return getSize() == 0;
     }
@@ -59,5 +51,13 @@ public class Queue {
 
     private void grow() {
         growBy(1);
+    }
+
+    public int getSize() {
+        return pushIndex - popIndex;
+    }
+
+    int getMemory() {
+        return elements.length;
     }
 }
