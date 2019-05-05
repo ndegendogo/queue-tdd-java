@@ -5,6 +5,14 @@ public class Queue {
     private int pushIndex;
     private int popIndex;
 
+    public int getSize() {
+        return pushIndex - popIndex;
+    }
+
+    int getMemory() {
+        return elements.length;
+    }
+
     public boolean isEmpty() {
         return getSize() == 0;
     }
@@ -36,13 +44,5 @@ public class Queue {
         elements = newElements;
         popIndex = 0;
         pushIndex = size;
-    }
-
-    public int getSize() {
-        return pushIndex - popIndex;
-    }
-
-    int getMemory() {
-        return elements.length;
     }
 }
