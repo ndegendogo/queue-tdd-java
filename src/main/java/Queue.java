@@ -45,4 +45,8 @@ public class Queue {
         popIndex = 0;
         pushIndex = size;
     }
+
+    public void growBy(int by) {
+
+    }
 }
