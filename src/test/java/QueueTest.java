@@ -127,4 +127,13 @@ class QueueTest {
         queue.growBy(2);
         assertEquals(2, queue.getMemory());
     }
+
+    @Test
+    void growBeforeFull_checkContent() {
+        queue.add(1);
+        queue.add(2);
+        assertEquals(1, queue.remove());
+        queue.growBy(1);
+        assertEquals(2, queue.remove());
+    }
 }

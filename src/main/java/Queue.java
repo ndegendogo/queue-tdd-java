@@ -38,8 +38,12 @@ public class Queue {
         int[] newElements = new int[newSize];
         if (!isEmpty()) {
             popIndex = popIndex % elements.length;
-            arraycopy(elements, popIndex, newElements, 0, size - popIndex);
-            arraycopy(elements, 0, newElements, size - popIndex, popIndex);
+            if (popIndex + size <= elements.length) {
+                arraycopy(elements, popIndex, newElements, 0, size);
+            } else {
+                arraycopy(elements, popIndex, newElements, 0, size - popIndex);
+                arraycopy(elements, 0, newElements, size - popIndex, popIndex);
+            }
         }
         elements = newElements;
         popIndex = 0;
@@ -47,7 +51,7 @@ public class Queue {
     }
 
     public void growBy(int by) {
-        growTo(getSize() + by);
+        growTo(getMemory() + by);
     }
 
     private void grow() {
