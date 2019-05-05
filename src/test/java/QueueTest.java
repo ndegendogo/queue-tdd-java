@@ -120,4 +120,11 @@ class QueueTest {
         queue.growBy(1);
         assertEquals(1, queue.getMemory());
     }
+
+    @Test
+    void growByTwo() {
+        assertEquals(0, queue.getMemory());
+        queue.growBy(2);
+        assertEquals(2, queue.getMemory());
+    }
 }
