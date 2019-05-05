@@ -47,6 +47,6 @@ public class Queue {
     }
 
     public void growBy(int by) {
-
+        grow();
     }
 }
