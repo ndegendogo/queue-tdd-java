@@ -113,4 +113,11 @@ class QueueTest {
     void growBy() {
         queue.growBy(1);
     }
+
+    @Test
+    void growCheckMemory() {
+        assertEquals(0, queue.getMemory());
+        queue.growBy(1);
+        assertEquals(1, queue.getMemory());
+    }
 }
