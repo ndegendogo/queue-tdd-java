@@ -108,4 +108,9 @@ class QueueTest {
         assertEquals(2, queue.remove());
         assertEquals(3, queue.remove());
     }
+
+    @Test
+    void growBy() {
+        queue.growBy(1);
+    }
 }
